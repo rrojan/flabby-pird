@@ -4,10 +4,10 @@ import random
 
 
 # Color values
-black = (0, 0, 0)
-white = (255, 255, 255)
-blue = (64, 224, 208)
-green = (34, 139, 34)
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+BLUE = (64, 224, 208)
+GREEN = (34, 139, 34)
 
 
 pygame.init()
@@ -23,15 +23,15 @@ img_width, img_height = img.get_size()
 
 
 def blocks(x_block, y_block, block_width, block_height, gap):
-    pygame.draw.rect(surface, green, [
+    pygame.draw.rect(surface, GREEN, [
                      x_block, y_block, block_width, block_height])
-    pygame.draw.rect(surface, green, [
+    pygame.draw.rect(surface, GREEN, [
                      x_block, y_block + block_height+gap, block_width, surface_height])
 
 
 def show_score(score):
     font = pygame.font.Font('freesansbold.ttf', 30)
-    text = font.render(f'Score: {score}', True, white)
+    text = font.render(f'Score: {score}', True, WHITE)
     surface.blit(text, [3, 3])
 
 
@@ -47,7 +47,7 @@ def replay_or_quit():
 
 
 def make_text_objs(text, font):
-    text_surface = font.render(text, True, white)
+    text_surface = font.render(text, True, WHITE)
     return text_surface, text_surface.get_rect()
 
 
@@ -75,8 +75,8 @@ def game_over_(score):
     main()
 
 
-def pause_game():
-    msg_surface('Game Paused', 'Press any key to continue')
+# def pause_game():
+#     msg_surface('Game Paused', 'Press any key to continue')
 
 
 def bird(x, y, img):
@@ -124,7 +124,7 @@ def main():
 
         y += y_move
 
-        surface.fill(blue)
+        surface.fill(BLUE)
         bird(x, y, img)
 
         blocks(x_block, y_block, block_width, block_height, gap)
